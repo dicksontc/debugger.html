@@ -171,6 +171,11 @@ class Tab extends PureComponent<Props> {
         className={className}
         key={sourceId}
         onClick={() => selectSource(sourceId)}
+        onMouseDown={e => {
+          if (e.button === 1) {
+            closeTab(source.get("url"));
+          }
+        }}
         onContextMenu={e => this.onTabContextMenu(e, sourceId)}
         title={getFileURL(src)}
       >
